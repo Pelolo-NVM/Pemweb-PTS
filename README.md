@@ -77,3 +77,18 @@ export function debounce(func, delay = 300) {
   };
 }
 ```
+
+Input: Parameter func (fungsi pencarian yang dituju) dan delay (waktu jeda milidetik).
+
+Proses: Menggunakan Closure untuk menyimpan memori timeoutId. Jika pengguna mengetik huruf baru, clearTimeout menghapus antrean lama, lalu membuat antrean eksekusi baru.
+
+Output: Mengembalikan fungsi yang baru akan dieksekusi saat pengguna berhenti mengetik selama 300ms. Sangat efisien untuk meringankan beban aplikasi.
+
+\*\*9. Sebutkan bug/error paling sulit selama PTS, penyebabnya, cara menemukannya, dan cara memperbaikinya.
+Bug tersulit adalah saat data yang ditarik dari DummyJSON secara default ternyata berisi produk kosmetik (parfum & makeup), yang sangat bertentangan dengan tema "Toko Alat Musik" saya. Saya menemukannya saat merender UI pertama kali. Cara memperbaikinya: saya membuat fungsi transformToMusicGear() yang menggunakan metode array .map() untuk menimpa atribut produk asli dengan array instrumen musik yang saya buat, tanpa melanggar aturan fetch() yang diwajibkan di soal PTS.
+
+10. Jika diberi satu minggu lagi, sebutkan dua perbaikan teknis yang akan Anda lakukan dan alasannya.
+
+Menerapkan Skeleton Loading: Saya akan mengubah indikator Spinner Loading biasa menjadi Skeleton Loading (bentuk kotak abu-abu berkedip menyerupai kartu asli). Alasannya, standar UX modern lebih menyarankan Skeleton karena mengurangi Layout Shift.
+
+Menerapkan Load More (Pagination): Merender 30 gambar HD sekaligus bisa membuat rendering DOM lambat. Saya akan membatasi tampilan awal 10 data, dan menambah tombol "Muat Lebih Banyak" untuk menjaga performa web tetap ringan.
