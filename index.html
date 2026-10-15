@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarakota Music & Gear Store | Dasbor Produk</title>
+    <!-- Hubungkan CSS Eksternal -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- HEADER: Identitas Aplikasi -->
+    <header class="app-header">
+        <div class="header-container">
+            <h1>Tarakota Music & Gear Store</h1>
+            <p class="subtitle">Dasbor Kurasi Alat Musik & Aksesoris UMKM</p>
+            <div class="student-info">
+                <span>Dibuat oleh: Febryano Putra (2440304020)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: Area Utama Dasbor -->
+    <main class="dashboard-main">
+        
+        <!-- SECTION 1: Analisis Data (Statistik Wajib) -->
+        <section id="analytics-section" class="card-panel" aria-labelledby="analytics-heading">
+            <h2 id="analytics-heading">Ringkasan Katalog</h2>
+            <div id="analytics-container" class="analytics-grid">
+                <!-- Elemen ini akan diisi oleh utils.js & app.js -->
+                <div class="stat-box">
+                    <h3>Total Produk</h3>
+                    <p id="stat-total">-</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Rata-rata Harga</h3>
+                    <p id="stat-avg">-</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Kontrol Interaktif (Search & Bookmark) -->
+        <section id="controls-section" class="controls-panel" aria-label="Kontrol Dasbor">
+            <div class="search-wrapper">
+                <label for="search-input" class="visually-hidden">Cari Alat Musik:</label>
+                <!-- Input ini menggunakan Debounce (Challenge C=2) -->
+                <input type="search" id="search-input" placeholder="Cari gitar, pedal, mic..." autocomplete="off">
+            </div>
+            <button type="button" id="btn-show-bookmarks" class="btn-primary">⭐ Lihat Favorit Saya</button>
+        </section>
+
+        <!-- SECTION 3: Daftar Produk API -->
+        <section id="products-section" aria-labelledby="products-heading">
+            <h2 id="products-heading" class="visually-hidden">Daftar Produk</h2>
+            
+            <!-- State UI: Loading & Error -->
+            <div id="ui-state-message" class="state-message" aria-live="polite">
+                <!-- Indikator Loading (Challenge C=2) -->
+                <div class="loader-spinner" role="status">
+                    <span class="visually-hidden">Memuat data produk...</span>
+                </div>
+                <p>Menghubungkan ke gudang Tarakota...</p>
+            </div>
+            
+            <!-- Kontainer Cards Produk -->
+            <div id="product-container" class="product-grid">
+                <!-- Data API akan di-render di sini oleh app.js -->
+            </div>
+        </section>
+
+        <!-- SECTION 4: Form Validasi Supplier (Z = 0) -->
+        <section id="supplier-section" class="card-panel" aria-labelledby="supplier-heading">
+            <h2 id="supplier-heading">Daftar Jadi Supplier Tarakota</h2>
+            <form id="supplier-form" novalidate>
+                <div class="form-group">
+                    <label for="supplier-name">Nama Toko/Supplier (Wajib min. 5 karakter): <span class="required" aria-hidden="true">*</span></label>
+                    <input type="text" id="supplier-name" name="supplierName" required aria-required="true" aria-describedby="name-error">
+                    <!-- Pesan error validasi akan muncul di sini (Tidak cuma ubah warna) -->
+                    <span id="name-error" class="error-message" role="alert" aria-live="assertive"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="supplier-product">Kategori Produk yang Dijual:</label>
+                    <select id="supplier-product" name="supplierProduct">
+                        <option value="instrumen">Instrumen Musik (Gitar, Bass, Drum)</option>
+                        <option value="audio">Pro Audio (Mic, Mixer, Monitor)</option>
+                        <option value="aksesoris">Aksesoris (Kabel, Pick, Strap)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Ajukan Pendaftaran</button>
+                <div id="form-success-msg" class="success-message hidden" role="status"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: Identitas Mahasiswa -->
+    <footer class="app-footer">
+        <p>&copy; 2026 Tarakota Skena Music. Hak Cipta Dilindungi.</p>
+        <p>Febryano Putra | 2440304020 | Program Studi Teknik Komputer UBT</p>
+    </footer>
+
+    <!-- Hubungkan JavaScript secara Modular (ES Modules) -->
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
