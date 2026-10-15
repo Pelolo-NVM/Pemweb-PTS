@@ -36,8 +36,8 @@ Aplikasi ini mengambil data REST API dari ekosistem eksternal secara _asynchrono
 
 > **Catatan untuk Febryano:** Jangan lupa untuk mengambil screenshot dari komputermu dan meletakkannya di folder proyek, lalu ganti teks ini dengan gambar asli!
 
-- _[MASUKKAN SCREENSHOT DESKTOP DI SINI]_
-- _[MASUKKAN SCREENSHOT MOBILE DI SINI]_
+![alt text](image1.png)
+![alt text](image2.png)
 
 ---
 
